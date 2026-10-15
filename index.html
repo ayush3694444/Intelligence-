@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Opportunity Finder</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>Opportunity Finder</h1>
+      <p class="intro">
+        Add opportunities, score them, and choose the best next step using a simple system.
+      </p>
+
+      <section class="card">
+        <h2>Add Opportunity</h2>
+        <form id="opportunity-form">
+          <label>
+            Opportunity name
+            <input id="name" name="name" type="text" required maxlength="80" placeholder="Example: Local social media service for shops" />
+          </label>
+
+          <div class="grid">
+            <label>
+              Real-world value (1-10)
+              <input id="value" name="value" type="number" min="1" max="10" required />
+            </label>
+            <label>
+              Feasibility for me now (1-10)
+              <input id="feasibility" name="feasibility" type="number" min="1" max="10" required />
+            </label>
+            <label>
+              Cost needed (1-10, lower is better)
+              <input id="cost" name="cost" type="number" min="1" max="10" required />
+            </label>
+            <label>
+              Time to first result (1-10, lower is better)
+              <input id="time" name="time" type="number" min="1" max="10" required />
+            </label>
+            <label>
+              Risk of failure (1-10, lower is better)
+              <input id="risk" name="risk" type="number" min="1" max="10" required />
+            </label>
+            <label>
+              Repeatable long-term benefit (1-10)
+              <input id="repeatability" name="repeatability" type="number" min="1" max="10" required />
+            </label>
+          </div>
+
+          <label>
+            First tiny experiment (one action you can do in 30-60 minutes)
+            <input id="experiment" name="experiment" type="text" required maxlength="180" placeholder="Example: Talk to 3 shop owners and ask if they would pay" />
+          </label>
+
+          <button type="submit">Add and score</button>
+        </form>
+      </section>
+
+      <section class="card">
+        <div class="row-between">
+          <h2>Ranked Opportunities</h2>
+          <div class="actions">
+            <button id="export-btn" type="button">Export JSON</button>
+            <button id="clear-btn" type="button" class="danger">Clear all</button>
+          </div>
+        </div>
+
+        <div class="table-wrap">
+          <table id="results-table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Opportunity</th>
+                <th>Score</th>
+                <th>First tiny experiment</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="card" id="recommendation-section">
+        <h2>Best next action</h2>
+        <p id="recommendation-text">Add at least one opportunity to get a recommendation.</p>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
